@@ -49,7 +49,7 @@ public class Util {
         //List<Job> currJobs = loadAllJobs(JOBS_FILENAME).collect(toList());
         
         //User currUser = getUserDetails(USERS_FILENAME, "4154842892");
-        User currUser = getUser("5105667710");
+        User currUser = getUser("4155312935");
         
         System.out.println("Current user: " + currUser);
         System.out.println("");
