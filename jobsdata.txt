@@ -1,0 +1,12 @@
+# Columns are: job address, address co-ords (to calc distance), skill reqd, user working on job, state for job, distance
+# State: 0 not started, 1 started, 2 completed, 3 problem occurred. 
+# Note: Each job uniquely identified by address, employee uniquely identified by their phone number
+John^67 Treebob way, Listowel, Co Kerry, Ireland^1,1^cleaning^^12346789^0^0.0
+Betty^119 Rambler Street, Bandon, Co Cork, Ireland^7,4^chat^^098765653^0^0.0
+James^45 Laramie Street, Bandon, Co Cork, Ireland^3,6^groceries^^3456789^0^0.0
+Alison^Melvin way, Kinsale, Co Cork, Ireland^7,7^cleaning^^7567655^0^0.0
+Bill^1177 Tour Street, Glanmire, Co Cork, Ireland^4,4^chat^^763456439^0^0.0
+Mary^234 Berry Street, Glanmire, Co Cork, Ireland^6,3^groceries^^987685^0^0.0
+Mrs Stinson^78 Plein way, Cobh, Co Cork, Ireland^5,2^cleaning^^654352^0^0.0
+Colonel Blink^1177 Ferman Street, Midletown, Co Cork, Ireland^0,0^chat^^098787676^0^0.0
+Georgina^45 Shannon Street, Kilmallock, Co Limerick, Ireland^5,0^groceries^^8765654^0^0.0

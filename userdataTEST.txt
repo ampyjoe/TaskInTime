@@ -1,0 +1,5 @@
+# Uniquely identified by phone number
++14155312935^Michael^groceries^27 Newriver street, Passage West, Co Cork, Ireland
++14154842892^Annie^groceries^567 Faraway boulevard, Ringaskiddy, Co Cork, Ireland
++15105667710^Jenny^chat^72 Old street, Glenville, Co Cork, Ireland
++17783627387^Andy^cleaning^72 Kesh street, Cork, Ireland
