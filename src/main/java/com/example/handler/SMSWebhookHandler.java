@@ -26,7 +26,7 @@ public class SMSWebhookHandler
 {
     public static void main(String[] args) {
 
-        post("/jobs", (var req, var res) -> {
+        post("/jobs", (req, res) -> {
             String message = req.queryParams("Body");
             String phoneNumFrom = req.queryParams("From");
             

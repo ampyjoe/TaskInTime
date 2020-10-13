@@ -62,7 +62,7 @@ public class Test {
         
 
         
-        String filename = "webhookTestParams_1.txt";
+        String filename = "webhookTestParams.txt";
         String url = "http://localhost:4567/jobs";
         
         if (args.length == 1) filename = args[0];
@@ -182,10 +182,10 @@ public class Test {
             throws IOException, InterruptedException {
         
         //System.out.println(c + ":" + s);
-        var client = theMap.get(c);
+        ClientWrapper client = theMap.get(c);
         //System.out.println(">>> " + theMap.get(c).thisClientIndex);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            var request = HttpRequest.newBuilder(
+            HttpRequest request = HttpRequest.newBuilder(
                 URI.create(url))
                 .header("Content-Type", "application/x-www-form-urlencoded")    // yep, needed cos POST!
                 .POST(BodyPublishers.ofString("Body=" + s + "&From=" + c))
