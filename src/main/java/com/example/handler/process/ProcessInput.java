@@ -5,7 +5,6 @@
  */
 package com.example.handler.process;
 
-//import com.example.handler.process.*;
 import com.example.data.Util;
 import com.example.handler.JobContext;
 import java.io.IOException;
@@ -14,8 +13,6 @@ import java.io.IOException;
  *
  * @author Admin
  */
-
-// Should this contain the text from last one?
 
 public interface ProcessInput {
     

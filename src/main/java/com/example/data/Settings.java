@@ -5,8 +5,6 @@
  */
 package com.example.data;
 
-
-
 /**
  *
  * @author Admin

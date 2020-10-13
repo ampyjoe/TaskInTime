@@ -103,7 +103,7 @@ public class Test {
 //                 }
 
 // This approach prob preferred rather than for loop above? Doesn't need to make a List first. 
-// But catching Exceptions with Streams always a bit clumsy. Can we throw from lambda block?
+// But catching Exceptions with Streams always a bit clumsy. 
 // 
 
                 Files.lines(file)
@@ -117,18 +117,19 @@ public class Test {
                                     url,
                                     l.split("\\^")[1].split(",")[1]);
                         } catch (IOException | InterruptedException ex) {
-                            //Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in Test - can't get user file");
                         }
                              
                  });
         
          } catch (IOException ex) {
-                    //Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+
                     System.out.println("Error in Test - can't get test details file");
          }
     }
     
+    
+//    Another way?    
 //    public static void getParamList (String filename, String url) {
 //                
 //        try {

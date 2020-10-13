@@ -5,8 +5,6 @@
  */
 package com.example.handler.process;
 
-//import handler.processing.ProcessInput;
-//import data.Settings;
 import com.example.data.Util;
 import com.example.handler.JobContext;
 import java.io.IOException;
@@ -17,9 +15,8 @@ import java.util.Optional;
  * @author Admin
  */
 
-// Do we need separate checks for "c" and "p" given they set the same subsequent state? And have lots dupe code.
 
-// Should never get here unless user has a job assigned. If not, will throw NoSuchElementException
+// Should never get here unless user has a job assigned. If no job assigned, will throw NoSuchElementException
 
 public class ProcessInputProgress implements ProcessInput {
     
@@ -39,7 +36,7 @@ public class ProcessInputProgress implements ProcessInput {
         return msgToUser;
     }
     
-    // Could be moved to default method on Interface if used elsewhere
+    // TODO Could be moved to default method on Interface if used elsewhere
     private String processValidMessage(JobContext context, int state, String message)  throws IOException{
         context.getCurrJob().get().setState(state);
         Util.saveJob(context.getCurrJob().get());

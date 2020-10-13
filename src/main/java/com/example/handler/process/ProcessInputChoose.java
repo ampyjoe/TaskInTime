@@ -5,9 +5,7 @@
  */
 package com.example.handler.process;
 
-//import com.example.handler.process.*;
 import com.example.data.Job;
-//import com.example.data.Settings;
 import com.example.data.Util;
 import com.example.handler.JobContext;
 import java.io.IOException;
@@ -26,7 +24,7 @@ public class ProcessInputChoose implements ProcessInput {
 
         try {
             
-            int selected = Integer.parseInt(message) - 1;   // - 1 to correct for zero-based TODO also need catch parseInt errors
+            int selected = Integer.parseInt(message) - 1;   // - 1 to correct for zero-based
             
             if ( selected < context.getJobList().length) {   
 

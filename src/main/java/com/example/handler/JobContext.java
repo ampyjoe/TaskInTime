@@ -33,23 +33,12 @@ public class JobContext{
         this.currState = currState;
     }
     
-    // TODO remove - only used to check 1 sequence per user connecting
-    // This is number contexts created since starting SMSWebhookHandler (not during this test)
-    private static int howMany; 
-    
-    private final int contextNumber;
-    
     private ProcessInput currState;  // 
     private Job[] jobList;           // Required as jobList user is choosing from needed in ProcessInputChooseJob
-    private Optional<Job> currJob = null;             // Make Optional?
+    private Optional<Job> currJob = null;
     private User user = null;
     
-    // Will need to check if working on a job. If so, state is Progress
-    // However, after List there should be a timeout, and in that case
-    // a number is an error as you need to List again.
-    
-    // currJob could also be an Optional and if it comes back empty... do the necessary. Better I think.
-
+    // If session expired needs to check if currently allocated a job. If so, state is Progress
     public JobContext(String phoneNum) throws IOException, NoSuchElementException{ 
         this.user = Util.getUser(phoneNum);
         System.out.println("User details: "  + user);
@@ -58,21 +47,12 @@ public class JobContext{
         if (currJob.isPresent()) {
             this.currState = new ProcessInputProgress();
         }   else this.currState = new ProcessInputInitial();
-        
-        contextNumber = howMany++;  
-        System.out.println(">>>>>>>>> New context created: " + contextNumber);
-  
     }
     
     
     public String runStep(String message) throws IOException {
         
-//        try {
-            return currState.runStep(this, message);
-//        } catch (IOException ioe) {
-//            System.out.println("Problem loading file data:\n" + ioe);
-//            return "There is a problem. Try again later";
-//        }
+         return currState.runStep(this, message);
     }
 
     /**
@@ -108,13 +88,6 @@ public class JobContext{
      */
     public void setCurrJob(Optional<Job> currJob) {
         this.currJob = currJob;
-    }
-
-    /**
-     * @return the howMany
-     */
-    public static int getHowMany() {
-        return howMany;
     }
     
 }

@@ -5,9 +5,6 @@
  */
 package com.example.handler.process;
 
-//import handler.processing.*;
-//import data.Settings;
-import com.example.data.Util;
 import com.example.handler.JobContext;
 import java.io.IOException;
 
@@ -15,8 +12,6 @@ import java.io.IOException;
  *
  * @author Admin
  */
-
-// TODO should "list" be available at all times?
 
 
 public class ProcessInputInitial implements ProcessInput {
@@ -26,9 +21,10 @@ public class ProcessInputInitial implements ProcessInput {
         String msgToUser = "";
         if (msgFromUser.equalsIgnoreCase("list")) {
             
-            msgToUser += "Welcome " + context.getUser().getName() + "\n\n";  
+            msgToUser += "Welcome " + context.getUser().getName() + "\n\n"; 
             
-            msgToUser += createJobList(context);    // Creates job list, sets state and returns message for user
+            // Creates job list, sets state and returns message for user
+            msgToUser += createJobList(context);    
 
         } else {   // Invalid input
             msgToUser += "Sorry, that's not valid input.\n"

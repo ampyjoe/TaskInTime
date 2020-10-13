@@ -5,9 +5,6 @@
  */
 package com.example.data;
 
-//import com.mycompany.data.*;
-
-import java.io.IOException;
 import java.util.NoSuchElementException;
 
 //import com.notused.State;

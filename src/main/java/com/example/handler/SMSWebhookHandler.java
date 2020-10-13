@@ -39,7 +39,7 @@ public class SMSWebhookHandler
             JobContext currSequence = session.attribute("context");
             System.out.println("Trying to get JobContext for ... " + phoneNumFrom);
             
-            // TODO possibly 2 try/catch blocks? One for creating context, one for running each step
+            // TODO possibly 2 try/catch blocks? One for creating context, one for running each step?
             // (Just for clarity in coding)
             try {
                 if (currSequence == null) {
