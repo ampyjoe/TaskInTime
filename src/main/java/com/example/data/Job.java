@@ -15,12 +15,11 @@ public class Job {
     
     private final String name;
     private final String address;
-    private final String addressCoord;
     private final String jobType;
     private final String jobPhone;
     private String workerPhone;
     private int state;
-    private float distance; // Only used in calculation, not stored
+
     
     public Job (String lineDetail) throws NoSuchElementException {
         
@@ -29,11 +28,10 @@ public class Job {
 
             name = params[0];
             address = params[1];
-            addressCoord = params[2];
-            jobType = params[3];
-            workerPhone = params[4];
-            jobPhone = params[5];
-            state = Integer.valueOf(params[6]);
+            jobType = params[2];
+            workerPhone = params[3];
+            jobPhone = params[4];
+            state = Integer.valueOf(params[5]);
         } catch (ArrayIndexOutOfBoundsException aioe) {
             throw new NoSuchElementException("Jobs file corrupted");
         }
@@ -42,8 +40,8 @@ public class Job {
     
     @Override
     public String toString() {
-        return getName() + "^" + getAddress() + "^" + getAddressCoord()  + "^"+ getJobType() + "^" 
-                + getWorkerPhone() + "^" + getJobPhone() + "^" + getState() + "^" + getDistance();
+        return getName() + "^" + getAddress() + "^" + getJobType() + "^" 
+                + getWorkerPhone() + "^" + getJobPhone() + "^" + getState();
     }
 
     /**
@@ -73,27 +71,6 @@ public class Job {
      */
     public void setState(int state) {
         this.state = state;
-    }
-
-    /**
-     * @return the distance
-     */
-    public float getDistance() {
-        return distance;
-    }
-
-    /**
-     * @param distance the distance to set
-     */
-    public void setDistance(float distance) {
-        this.distance = distance;
-    }
-
-    /**
-     * @return the addressCoord
-     */
-    public String getAddressCoord() {
-        return addressCoord;
     }
 
     /**

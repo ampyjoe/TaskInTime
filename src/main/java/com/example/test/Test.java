@@ -60,30 +60,14 @@ public class Test {
     
     public static void main(String[] args) throws InterruptedException, IOException {
         
-
+        ResetData.main(null);
         
         String filename = "webhookTestParams.txt";
         String url = "http://localhost:4567/jobs";
         
         if (args.length == 1) filename = args[0];
-        
-        //Map<String,HttpClient> theMap;
-        
+ 
         getParamList2(filename, url);   // Do the test
-        
-        
-        // Cleanup
-                String jobDetails =
-                Util.loadAllJobs("jobsdata_bkup.txt")  // backup jobs details
-                .collect(mapping(Job::toString,joining("\n")));
-        
-        try {
-            Util.saveJobs(jobDetails);
-        } catch (IOException io) {
-            System.out.println("Error in Test.java: " + io);
-        }
-        
-        //System.exit(0);
         
     }
     

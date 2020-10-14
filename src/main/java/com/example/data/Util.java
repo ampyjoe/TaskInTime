@@ -58,13 +58,6 @@ public class Util {
         saveJob(currJob);
         
         System.out.println("=========== Jobs in order ===============");
-        
-//        loadAllJobs().map(j -> {
-//            j.setDistance(calcDistance(currUser.getAddressCoord(), j.getAddressCoord()));
-//            return j;})
-//                .filter(f -> f.getJobType().equalsIgnoreCase(currUser.getSkill()))
-//                .sorted(Comparator.comparing(j -> j.getDistance()))
-//                .forEach(System.out::println);
 
     }
     
@@ -112,7 +105,7 @@ public class Util {
     }
     
     //public static synchronized boolean saveJobs(String textString) {
-    public static boolean saveJobs(String textString) throws IOException{
+    public static void saveJobs(String textString) throws IOException{
 
         //try {
              // Get comments
@@ -133,7 +126,6 @@ public class Util {
                               pw.close();
                               //pw.close();
 
-        return true;
     }
 
     

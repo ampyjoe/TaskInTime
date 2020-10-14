@@ -33,7 +33,7 @@ public interface ProcessInput {
             }
              msgToUser += "\nText the number of the job you'd like to tackle.";
         } else {
-             msgToUser += "There are no jobs available now."
+             msgToUser += "There are no jobs available now. "
                + "Try texting 'list' later";
            context.setCurrState(new ProcessInputInitial());
         }

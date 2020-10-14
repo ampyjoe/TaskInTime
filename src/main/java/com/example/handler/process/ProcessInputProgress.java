@@ -5,6 +5,7 @@
  */
 package com.example.handler.process;
 
+import com.example.data.Settings;
 import com.example.data.Util;
 import com.example.handler.JobContext;
 import java.io.IOException;
@@ -26,10 +27,10 @@ public class ProcessInputProgress implements ProcessInput {
             
             if ( message.equalsIgnoreCase("c")) {
 
-                msgToUser = processValidMessage(context, 2, "Excellent! Text 'list' to see joblist again.");
+                msgToUser = processValidMessage(context, Settings.COMPLETED, "Excellent! Text 'list' to see joblist again.");
                 
             } else if ( message.equalsIgnoreCase("p")) {
-                msgToUser = processValidMessage(context, 2, "Oh dear - we'll look into it!\nText 'list' to see joblist again.");
+                msgToUser = processValidMessage(context, Settings.PROBLEM, "Oh dear - we'll look into it!\nText 'list' to see joblist again.");
 
             } else msgToUser += "Sorry, you need to text C or P";
             
