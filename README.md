@@ -8,7 +8,7 @@ Of course, on seeing it working with many different test runs supplied, the user
 Packages that illustrate coding techniques used with Twilio's API to manage an SMS conversation. (The same techniques could also be used to create an IVR).
 These packages are complete and working though may benefit from some tidy up.
 
-**com.example.handler**
+`com.example.handler`
 Contains the webhook, SMSWebhookHandler (plus a very simple utility), and the class that models the state of the conversation, JobContext.
 
 **com.example.handler.process**
