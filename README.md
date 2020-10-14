@@ -8,20 +8,20 @@ Of course, on seeing it working with many different test runs supplied, the user
 Packages that illustrate coding techniques used with Twilio's API to manage an SMS conversation. (The same techniques could also be used to create an IVR).
 These packages are complete and working though may benefit from some tidy up.
 
-#com.example.handler
+*com.example.handler*
 Contains the webhook, SMSWebhookHandler (plus a very simple utility), and the class that models the state of the conversation, JobContext.
 
-#com.example.handler.process
+com.example.handler.process
 Contains an Interface, ProcessInput, and a number of concrete classes to model different parts of the conversation.
 
 Packages that are designed to simplify trying out the sample.
 These packages are working, but do need some tidy-up.
 
-#com.example.data
+com.example.data
 Contains files related to manipulating the data. 
 This includes the classes User to model users (the people who text the system), and Job to model jobs (jobs currently waiting to be completed).
 It also includes some settings and a class Util, that handles all of the persistence needed.
 Util is currently set up to use plain text files for both users and jobs, with a line for each entity (user or job) and with each field separated by a caret (^). A version of Util could be created that uses, say, a database like derbydb, but plain text files are simplest for set up and simplest to modify.
 
-#com.example.test
+com.example.test
 Contains a class, Test, that simulates the Twilio requests requests to the webhook, SMSWebhookHandler. Test reads a plain text file to determine the sequence of requests it should make and also includes a cookie, just as a Twilio request would. The cookie is only stored in memory and thus re-running Test simulates what happens when the session has expired.
