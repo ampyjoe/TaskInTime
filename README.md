@@ -7,7 +7,7 @@ Of course, on seeing it working with many different test runs supplied, the user
 
 ## Code Included
 
-######Packages that illustrate coding techniques######
+### Packages that illustrate coding techniques
 
 These packages are complete and working though may benefit from some tidy up.
 
@@ -17,7 +17,7 @@ Contains the webhook, SMSWebhookHandler (plus a very simple utility), and the cl
 `com.example.handler.process`
 Contains an Interface, ProcessInput, and a number of concrete classes to model different parts of the conversation.
 
-######Packages that are designed to simplify trying out the sample######
+### Packages that are designed to simplify trying out the sample
 These packages are working, but do need some tidy-up.
 
 `com.example.data`
@@ -29,5 +29,5 @@ Util is currently set up to use plain text files for both users and jobs, with a
 `com.example.test`
 Contains a class, Test, that simulates the Twilio requests requests to the webhook, SMSWebhookHandler. Test reads a plain text file to determine the sequence of requests it should make and also includes a cookie, just as a Twilio request would. The cookie is only stored in memory and thus re-running Test simulates what happens when the session has expired.
 
-##Notes##
+## Notes
 used with Twilio's API to manage an SMS conversation. (The same techniques could also be used to create an IVR).
