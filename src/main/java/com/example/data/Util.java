@@ -28,21 +28,11 @@ public class Util {
     // TODO delete before finalizing. Used only for testing Util methods.
     public static void main(String[] args)  throws IOException{
         
-//        String JOBS_FILENAME = Settings.JOBS_FILENAME;
-//        String USERS_FILENAME = Settings.USERS_FILENAME;
-//        String testFilename = Settings.testFilename;
-        //List<Job> currJobs = loadAllJobs(JOBS_FILENAME).collect(toList());
-        
-        //User currUser = getUser(USERS_FILENAME, "4154842892");
         User currUser = getUser("4155312935");
         
         System.out.println("Current user: " + currUser);
         System.out.println("");
 //        
-//        System.out.println(currUser.getState().getStateValue());
-//        currUser.getState().incStateValue();
-//        System.out.println(currUser.getState().getStateValue());
-//        System.out.println("");
         
         Job currJob = getJobIfAvailable("1177 Tour Street, Notown", currUser);   // Need full list for saving
         //Job nextJob = getNextJob(JOBS_FILENAME, currJob);
