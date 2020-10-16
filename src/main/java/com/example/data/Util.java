@@ -107,10 +107,9 @@ public class Util {
     //public static synchronized boolean saveJobs(String textString) {
     public static void saveJobs(String textString) throws IOException{
 
-        //try {
-             // Get comments
+             // get the initial comments
              Path file = new File(JOBS_FILENAME).toPath();
-             Stream<String> comments = Files.lines(file)    // this is here to preserve initial comments
+             Stream<String> comments = Files.lines(file)
                      .takeWhile(f -> f.startsWith("#"))
                      .collect(toList())
                      .stream();
@@ -120,6 +119,7 @@ public class Util {
              
              Stream<String> summat =  Arrays.stream(textString.split("\n"));
              
+             // Combine Stream of comments and Stream of Jobs 
              Stream.concat(comments, summat)
                     //.peek(l -> System.out.println("here: " + l))
                 .forEach(l -> pw.println(l));
@@ -169,32 +169,30 @@ public class Util {
                 .filter(f -> f.getWorkerPhone().equals(""))
                 .filter(f -> f.getAddress().equals(address))
                 .findAny()
-                .orElseThrow(); // It's been snatched by someone else!
+                .orElseThrow(); // (NoSuchElementException) It's been grabbed by someone else!
         
         System.out.println("Job " + address + " is available for " + user.getName());
         
-        job.setWorkerPhone(user.getPhoneNumber());    // modify the job
-
-                    
+        job.setWorkerPhone(user.getPhoneNumber());    // modify the job to claim it for user  
         Util.saveJob(job);  // try to save modified job
         
         return job;
     }
     
-    // Indicates if user has job currently allocated
-    // 
+    // Gets user's currently allocated job as an Optional
+    // No Job then empty Optional.
     public static Optional<Job> getUserStatus(User user)  throws IOException{
         Optional<Job> job =
                 loadAllJobs()
                 .filter(f -> (f.getWorkerPhone().equals(user.getPhoneNumber())))
-                .filter(f -> f.getState()==0) // Job not completed
+                .filter(f -> f.getState()==Settings.AVAILABLE) // Job not completed or marked as problem
                 .findAny();
-                //.orElseThrow();
         return job;
     }
     
-    // Returns ordered job list (order based on order in file
+    // Returns ordered job list (order based on order in file)
     // i.e. based on when added to file
+    // TODO maybe use ArrayList not Array?
     public static Job[] getJobList(User user) throws IOException{
 
         Job[] jobList = loadAllJobs()

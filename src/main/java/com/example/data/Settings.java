@@ -14,6 +14,7 @@ public class Settings {
     public static final String JOBS_FILENAME = "jobsdata.txt";
     public static final String USERS_FILENAME = "userdata.txt";
 
+    public static final int AVAILABLE = 0;
     public static final int COMPLETED = 1;
     public static final int PROBLEM = 2;
     
