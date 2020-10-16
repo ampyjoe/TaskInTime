@@ -47,6 +47,8 @@ public class Test {
  
         getParamList2(filename, url);   // Do the test
         
+        ResetData.main(null);   // reset jobsdata.txt for a next test run
+        
     }
     
     
