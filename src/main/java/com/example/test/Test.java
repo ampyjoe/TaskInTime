@@ -4,63 +4,41 @@
  * and open the template in the editor.
  */
 package com.example.test;
-
-import com.example.data.Job;
 import com.example.data.Util;
 import java.io.File;
 import java.io.IOException;
-import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublishers;
-//import java.net.http.HttpRequest.BodyPublisher;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.mapping;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
-import java.util.stream.Stream;
+
 
 /**
  *
  * @author Admin
  */
 public class Test {
-    
-    // TODO set it to cleanup after completion, not before
-    
+
     // Allow passing in params file with default use default params file
     // Or pass in reset just to reset the jobsdata.txt file.
     
     // Note:
-    // context NOT stored in memory so will only work properly within a single call.
+    // cookie NOT stored in memory so will only work properly within a single call.
     
-    // If jobsdata filename not passed in, then replace data in jobsdata.txt each
-    // run. Otherwise don't, so can test subsequent calls (i.e. new session) 
-    // as datastore changes.
-    
-    
-    // TODO will it be able to save the cookie
-    //static Map<String,HttpClient> theMap = new HashMap<>();
+
     static Map<String,ClientWrapper> theMap = new HashMap<>();
     static int howMany;
     static String userDetailsFile = "userdataTEST.txt"; // Maybe put in main (so can be cmdline parameter)
     
     public static void main(String[] args) throws InterruptedException, IOException {
         
-        ResetData.main(null);
+        //ResetData.main(null);   // reset jobsdata.txt for a new test run
         
         String filename = "webhookTestParams.txt";
         String url = "http://localhost:4567/jobs";
@@ -70,6 +48,8 @@ public class Test {
         getParamList2(filename, url);   // Do the test
         
     }
+    
+    
     
     public static void getParamList2 (String filename, String url) throws InterruptedException {
          try {
@@ -163,6 +143,7 @@ public class Test {
         return clientWrapper;
     }
 
+    // TODO replace magic numbers (e.g. 40, 30, and others) with parameters
     private static void sendCommand(String c, String url, String s) 
             throws IOException, InterruptedException {
         
@@ -183,28 +164,17 @@ public class Test {
         // TODO prob should specify file for users here for testing purposes
         
         System.out.println((Util.getUser(c, userDetailsFile).getName() + ":" + s).indent(1 + (client.thisClientIndex - 1) * 40));
-        //String output = Util.wrapLongLines(HttpResponse.BodyHandlers.ofString().body(), 35);
+
         String response = client.theClient.send(request, HttpResponse.BodyHandlers.ofString()).body();
         System.out.println(Util.wrapLongLines(response, 30, 0).indent(5 + (client.thisClientIndex - 1) * 40));
-        //System.out.println(client.send(request, output));
 
-        //String indent = "/t";
-        //indent = indent.repeat(client.)
-        
-        //
-//        //System.out.println("User request: " + s);
-//        System.out.println(s + ":" + client.send(request, HttpResponse.BodyHandlers.ofString()).body());
-        //System.out.println("=".repeat(35));
-
-        
-        //TimeUnit.SECONDS.sleep(30);
     
     }
     
     
 }
 
-class ClientWrapper {   // TODO encapsulate or make it a member of Test
+class ClientWrapper {   // TODO encapsulate or make a member of Test
     HttpClient theClient;
     int thisClientIndex;
 }

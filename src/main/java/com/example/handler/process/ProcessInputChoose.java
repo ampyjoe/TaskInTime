@@ -20,7 +20,7 @@ public class ProcessInputChoose implements ProcessInput {
     
     @Override
     public String runStep(JobContext context, String message)  throws IOException{
-        String msgToUser = "";
+        String msgToUser = null;
 
         try {
             
