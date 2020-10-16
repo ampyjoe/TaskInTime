@@ -18,7 +18,7 @@ public class ProcessInputInitial implements ProcessInput {
 
     @Override
     public String runStep(JobContext context, String msgFromUser) throws IOException{
-        String msgToUser = null;
+        String msgToUser = "";
         if (msgFromUser.equalsIgnoreCase("list")) {
             
             msgToUser += "Welcome " + context.getUser().getName() + "\n\n"; 

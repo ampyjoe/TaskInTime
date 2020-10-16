@@ -14,6 +14,9 @@ import java.io.IOException;
  * @author Admin
  */
 
+// TODO For this interface and its classes, refactor to NOT use concatenation
+// Use StringBuffer instead.
+
 public interface ProcessInput {
     
     String runStep(JobContext context, String inputMessage) throws IOException;
