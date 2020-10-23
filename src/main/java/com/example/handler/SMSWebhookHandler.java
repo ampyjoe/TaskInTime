@@ -4,21 +4,9 @@
  */
 package com.example.handler;
 
-//import com.twilio.twiml.MessagingResponse;
-//import com.mycompany.handler.*;
-//import com.notused.Sequence5;
-//import com.mycompany.test.WebPage;
-//import com.twilio.twiml.MessagingResponse;
-//import com.twilio.twiml.messaging.Body;
-//import com.twilio.twiml.messaging.Message;
-//import javax.servlet.http.HttpSession;
-import com.example.test.WebPage;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.NoSuchElementException;
 import spark.Session;
-//import com.twilio.twiml.Body;
-//import com.twilio.twiml.Message;
 
 import static spark.Spark.*;    // So that "get" and "post" can be used in code
 
